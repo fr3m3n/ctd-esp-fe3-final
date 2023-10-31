@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
+import Card from './Components/Card';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [students, setStudents] = useState([]);
+    const [name, setName] = useState('');
+    const [grade, setGrade] = useState('');
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handleAddStudent = () => {
+        setStudents(prevStudents => [...prevStudents, { id: prevStudents.length + 1, name, grade }]);
+        setName('');
+        setGrade('');
+    };
+
+    return (
+        <>
+            <h1>Carga de estudiantes</h1> 
+            <form onSubmit={e => e.preventDefault()}>
+                <input 
+                    type="text" 
+                    value={name} 
+                    onChange={e => setName(e.target.value)} 
+                    placeholder="Name"
+                />
+                <input 
+                    type="text" 
+                    value={grade} 
+                    onChange={e => setGrade(e.target.value)} 
+                    placeholder="Grade"
+                />
+                <button type="button" onClick={handleAddStudent}>
+                    Cargar Estudiante
+                </button>
+            </form>
+
+            <Card students={students} />
+        </>
+    );
 }
 
-export default App
+export default App;
