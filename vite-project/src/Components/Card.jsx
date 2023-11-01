@@ -1,16 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const Card = ({students}) => {
-  console.log(students);
+function Card({ username, password }) {
   return (
     <div>
-      <ul>
-          {students.map(student => <li key={student.id}>
-              {student.id} - {student.name} - {student.grade}
-          </li>)}
-      </ul>
+      <h3>Login</h3>
+      <p>User: {username}</p>
+      <p>Password: {password}</p>
     </div>
   );
-};
+}
 
 export default Card;
