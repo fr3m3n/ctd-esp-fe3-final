@@ -1,15 +1,32 @@
-import { createContext } from "react";
 
-export const initialState = {theme: "", data: []}
+import { createContext, useReducer } from 'react';
 
-export const ContextGlobal = createContext(undefined);
+const initialState = {
+  theme: 'light', // Default theme
+  users: [] // Data fetched from the API
+};
 
-export const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE_THEME':
+      return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
+    case 'SET_USERS':
+      return { ...state, users: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const GlobalContext = createContext();
+
+export const GlobalProvider = ({ children }) => {
+    //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <ContextGlobal.Provider value={{}}>
+    <GlobalContext.Provider value={{ state, dispatch }}>
       {children}
-    </ContextGlobal.Provider>
+    </GlobalContext.Provider>
   );
 };

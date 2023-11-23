@@ -1,15 +1,18 @@
 
-import Footer from "./Components/Footer";
-import Navbar from "./Components/Navbar";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-
-function App() {
+const App = () => {
   return (
-      <div className="App">
-          <Navbar/>
-          <Footer/>
-      </div>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<div>Home</div>} />
+        <Route path="/contact" element={<div>Contact</div>} />
+        <Route path="/dentist/:id" element={<div>Detail</div>} />
+        <Route path="/favs" element={<div>Favs</div>} />
+      </Routes>
+    </div>
   );
-}
+};
 
 export default App;
