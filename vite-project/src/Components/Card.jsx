@@ -1,20 +1,30 @@
-import React from "react";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
+const Card = ({ id, name, username }) => {
+  const navigate = useNavigate();
 
-const Card = ({ name, username, id }) => {
-
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-  }
+  const addFav = () => {
+    const favs = JSON.parse(localStorage.getItem('favorites')) || [];
+    const newFav = { id, name, username };
+    if (!favs.some(fav => fav.id === id)) {
+      favs.push(newFav);
+      localStorage.setItem('favorites', JSON.stringify(favs));
+    }
+    // Optionally, provide feedback or update state
+  };
 
   return (
-    <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+    <div className="card" onClick={() => navigate(`/dentist/${id}`)}>
+      <div>
+        <h3>{name}</h3>
+        <p>@{username}</p>
+        <p>ID: {id}</p>
+      </div>
+      <button onClick={(e) => {
+        e.stopPropagation(); // Prevent the navigation
+        addFav();
+      }} className="favButton">Add fav</button>
     </div>
   );
 };
