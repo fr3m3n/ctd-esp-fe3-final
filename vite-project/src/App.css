@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Default light theme styles */
+body {
+  background-color: #fff;
+  color: #000;
+  /* Other light theme styles */
+}
+
+/* Dark theme styles */
+.dark {
+  background-color: #12121296;
+  color: white;
+}
+
+.dark a {
+  color: white;
+}
