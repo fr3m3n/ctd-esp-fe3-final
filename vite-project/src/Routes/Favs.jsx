@@ -6,9 +6,21 @@ const Favs = () => {
   const [favorites, setFavorites] = useState([]);
   const { state } = useContext(GlobalContext);
 
-  useEffect(() => {
+  // Function to reload favorites from local storage and update state
+  const reloadFavorites = () => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setFavorites(storedFavorites);
+  };
+
+  useEffect(() => {
+    // Set up an event listener for local storage changes
+    window.addEventListener('storage', reloadFavorites);
+
+    // Initial load of favorites
+    reloadFavorites();
+
+    // Clean up the event listener when the component is unmounted
+    return () => window.removeEventListener('storage', reloadFavorites);
   }, []);
 
   return (
@@ -17,7 +29,8 @@ const Favs = () => {
       {favorites.length > 0 ? (
         <div className="card-grid">
           {favorites.map((dentist) => (
-            <Card key={dentist.id} name={dentist.name} username={dentist.username} />
+            // Pass reloadFavorites to Card so it can trigger a reload on toggle
+            <Card key={dentist.id} name={dentist.name} username={dentist.username} reloadFavorites={reloadFavorites} />
           ))}
         </div>
       ) : (
