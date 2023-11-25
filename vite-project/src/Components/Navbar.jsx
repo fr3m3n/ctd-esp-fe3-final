@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className={state.theme}>
       <Link to="/">Home</Link>
       <Link to="/contact">Contact</Link>
-      <Link to="/favs">Highlights</Link>
+      <Link to="/favs">Favs</Link>
       <button onClick={toggleTheme}>Change theme</button>
     </nav>
   );

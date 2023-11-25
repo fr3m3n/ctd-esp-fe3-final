@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Card = ({ id, name, username, reloadFavorites }) => {
   const navigate = useNavigate();
-
   // State to track if the dentist is a favorite
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -11,7 +10,7 @@ const Card = ({ id, name, username, reloadFavorites }) => {
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setIsFavorite(favorites.some(fav => fav.id === id));
-  }, [id]);
+  }, [id]); // Dependency on id is enough as reloadFavorites function reference is stable
 
   const toggleFavorite = (e) => {
     e.stopPropagation(); // Prevent the navigation from card click
@@ -30,6 +29,7 @@ const Card = ({ id, name, username, reloadFavorites }) => {
     setIsFavorite(!isFavorite);
 
     // Call the reloadFavorites function passed from the parent component
+    // to update the favorite state in the parent component.
     reloadFavorites();
   };
 
@@ -38,7 +38,7 @@ const Card = ({ id, name, username, reloadFavorites }) => {
       <div>
         <h3>{name}</h3>
         <p>@{username}</p>
-        <p>ID: {id}</p>
+        <p>ID: {id}</p> {/* Display the ID */}
       </div>
       <button onClick={toggleFavorite} className="favButton">
         {isFavorite ? 'Remove from favs' : 'Add to favs'}
