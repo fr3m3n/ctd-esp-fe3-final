@@ -1,17 +1,33 @@
+/* Custom Properties */
+:root {
+  --color-text: #000;
+  --color-text-hover: rgb(136, 136, 136);
+  --color-background: #fff;
+  --color-background-dark: #121212;
+  --color-border: #ccc;
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-hover: rgba(0, 0, 0, 0.15);
+  --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-stack-code: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Base Styles */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-stack);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--font-stack-code);
 }
 
+/* Button Styles */
 .favButton {
   background-color: rgba(136, 136, 136, 0.116);
   padding: 10px;
@@ -20,29 +36,35 @@ code {
   cursor: pointer;
 }
 
+/* Heading Styles */
 h1 {
   text-align: center;
 }
 
+/* Navigation Styles */
 nav {
-  width: 100%; /* Set width to full viewport width */
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  padding: 1rem 0; /* Adjust padding as needed */
-  box-sizing: border-box; /* Ensures padding doesn't affect the total width */
+  padding: 1rem 0;
+  box-sizing: border-box;
 }
 
+
+
+/* Link Styles */
 a {
-  color: #000;
+  color: var(--color-text);
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
 }
 
 a:hover {
-  color: rgb(136, 136, 136);
+  color: var(--color-text-hover);
 }
 
+/* Footer Styles */
 footer {
   display: flex;
   justify-content: center;
@@ -55,16 +77,17 @@ footer {
   margin-top: 2rem;
 }
 
-footer > img {
+footer img {
   width: 200px;
   margin: 0;
 }
 
-footer > p {
+footer p {
   margin: 0;
   padding-top: 0.7rem;
 }
 
+/* Form Styles */
 form {
   display: flex;
   flex-direction: column;
@@ -74,54 +97,61 @@ form {
   margin: 0 auto;
 }
 
+/* Card Styles */
 .card {
-  flex: 0 0 calc(20% - 10px); /* Five cards per row, accounting for gap */
-  margin-bottom: 20px; /* Margin at the bottom of each card */
-  text-align: center; /* Center text inside cards */
-  border: 1px solid #ccc; /* Border around cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  padding: 1rem; /* Padding inside cards */
-  box-sizing: border-box; /* Include padding and border in the width calculation */
-  border-radius: 10px; /* Rounded corners for the cards */
+  flex: 0 0 calc(20% - 10px);
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 8px var(--color-shadow);
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: box-shadow 0.3s, transform 0.3s; /* Add transform to the transition for hover effect */
 }
 
-.card img {
-  max-width: 100%; /* Responsive image size */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 1rem; /* Space below the image */
-  border-radius: 10px; /* Rounded corners for the image */
-}
-
+/* Hover effect for cards */
 .card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly more pronounced shadow on hover */
+  box-shadow: 0 8px 16px var(--color-shadow-hover); /* Increased shadow for hover effect */
+  transform: scale(1.05); /* Slightly scale up the card */
 }
 
+/* Dark theme card styles */
+.dark .card {
+  border: 1px solid #333;
+  background-color: #1e1e1e;
+}
+
+/* Hover effect for cards in dark mode */
+.dark .card:hover {
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Lighter shadow color for dark mode */
+}
+
+/* Card Image Styles */
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+/* Card Grid Styles */
 .card-grid {
   display: flex;
   flex-wrap: wrap; /* Allows cards to wrap to next line */
   gap: 10px; /* Adjust the gap to your preference */
   justify-content: space-around; /* Evenly distribute space around items */
   align-items: flex-start; /* Aligns items to the start of the cross axis */
+  padding: 0 20px; /* Add 20px padding to the left and right */
+  margin: 0 auto; /* Center the grid in the parent container */
 }
 
-@media (max-width: 1024px) {
-  .card {
-    flex: 0 0 calc(50% - 10px); /* Two cards per row on medium screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    flex: 0 0 calc(100% - 10px); /* One card per row on small screens */
-  }
-}
-
+/* Table Styles */
 table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  display: table;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
 }
 
 td, th {
@@ -134,11 +164,76 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+/* Dark theme styles */
 .dark {
-  background-color: #121212;
-  color: white;
+  background-color: #121212; /* Dark mode background */
+  color: #e0e0e0; /* Light text color for dark mode */
+}
+
+.dark .card {
+  border: 1px solid #333; /* Dark mode card border */
+  background-color: #1e1e1e; /* Dark mode card background */
+}
+
+.dark .favButton {
+  background-color: rgba(255, 255, 255, 0.1); /* Light button background for dark mode */
+  color: #e0e0e0; /* Light text color for buttons in dark mode */
 }
 
 .dark a {
-  color: white;
+  color: #bb86fc; /* Purple link color for dark mode */
+}
+
+.dark nav {
+  border-bottom: 1px solid #333; /* Dark mode nav border */
+}
+
+/* Modify the button text based on the theme */
+.theme-button {
+  background: none;
+  border: 1px solid #ccc; /* Add a border to make it distinguishable */
+  padding: 10px 15px; /* Increased padding for a bigger button */
+  cursor: pointer;
+  font-size: 1.2em; /* Larger text size for the button */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+  border-radius: 5px; /* Rounded corners for the button */
+}
+
+.theme-button:hover {
+  background-color: rgba(136, 136, 136, 0.116); /* Hover effect for the button */
+}
+
+/* Styles to apply when the theme is dark */
+.dark .theme-button {
+  border-color: #bb86fc; /* Purple border for the button in dark mode */
+  color: #e0e0e0; /* Light text color for the button in dark mode */
+  background-color: #333; /* Dark background color for the moon button */
+}
+
+.dark .theme-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover in dark mode */
+  color: #bb86fc; /* Purple text color on hover in dark mode */
+}
+
+/* Styles to apply when the theme is dark */
+.dark .theme-button {
+  border-color: #bb86fc; /* Purple border for the button in dark mode */
+  color: #e0e0e0; /* Light text color for the button in dark mode */
+}
+
+.dark .theme-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover in dark mode */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 10px); /* Two cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% - 10px); /* One card per row on small screens */
+  }
 }

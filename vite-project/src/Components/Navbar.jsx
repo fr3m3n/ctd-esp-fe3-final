@@ -9,12 +9,18 @@ const Navbar = () => {
     dispatch({ type: 'TOGGLE_THEME' });
   };
 
+  // Determine the button text based on the current theme
+  const themeButtonContent = state.theme === 'light' ? '🌙' : '☀️';
+  const themeButtonLabel = state.theme === 'light' ? 'Dark Mode' : 'Light Mode';
+
   return (
-    <nav className={state.theme}>
+    <nav className={`navbar ${state.theme}`}>
       <Link to="/">Home</Link>
       <Link to="/contact">Contact</Link>
       <Link to="/favs">Favs</Link>
-      <button onClick={toggleTheme}>Change theme</button>
+      <button onClick={toggleTheme} className="theme-button" aria-label="Toggle Theme">
+        {themeButtonContent} {themeButtonLabel}
+      </button>
     </nav>
   );
 };
