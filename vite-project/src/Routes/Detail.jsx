@@ -13,7 +13,7 @@ const Detail = () => {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Dentist not found');
+          throw new Error('Doctor not found');
         }
         return response.json();
       })

@@ -67,10 +67,10 @@ a:hover {
 /* Footer Styles */
 footer {
   display: flex;
-  justify-content: center; /* Aligns children (content) of the footer to the center horizontally */
-  align-items: center; /* Aligns children (content) of the footer to the center vertically */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 1rem 0; /* Adjust padding as needed */
+  padding: 1rem 0; 
   width: 100%;
   position: relative;
   bottom: 0;
@@ -106,13 +106,13 @@ form {
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 10px;
-  transition: box-shadow 0.3s, transform 0.3s; /* Add transform to the transition for hover effect */
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 /* Hover effect for cards */
 .card:hover {
-  box-shadow: 0 8px 16px var(--color-shadow-hover); /* Increased shadow for hover effect */
-  transform: scale(1.05); /* Slightly scale up the card */
+  box-shadow: 0 8px 16px var(--color-shadow-hover);
+  transform: scale(1.05);
 }
 
 /* Dark theme card styles */
@@ -123,7 +123,7 @@ form {
 
 /* Hover effect for cards in dark mode */
 .dark .card:hover {
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Lighter shadow color for dark mode */
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
 
 /* Card Image Styles */
@@ -137,12 +137,12 @@ form {
 /* Card Grid Styles */
 .card-grid {
   display: flex;
-  flex-wrap: wrap; /* Allows cards to wrap to next line */
-  gap: 10px; /* Adjust the gap to your preference */
-  justify-content: space-around; /* Evenly distribute space around items */
-  align-items: flex-start; /* Aligns items to the start of the cross axis */
-  padding: 0 20px; /* Add 20px padding to the left and right */
-  margin: 0 auto; /* Center the grid in the parent container */
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 
 /* Table Styles */
@@ -165,8 +165,7 @@ tr:nth-child(even) {
 
 /* Light theme styles */
 .light .logo {
-  /* Assuming the light theme doesn't need additional styles, but you can add a subtle shadow if you like */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for light theme for consistency */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Dark theme styles */
@@ -175,13 +174,6 @@ tr:nth-child(even) {
   box-shadow: 0 0 8px #fff; /* Adds a white shadow for visibility */
 }
 
-/* Dark theme styles */
-.dark .logo {
-  border: 1px solid #fff; /* Adds a white border around the logo */
-  box-shadow: 0 0 8px #fff; /* Adds a white shadow for visibility */
-}
-
-/* Dark theme styles */
 .dark {
   background-color: #121212; /* Dark mode background */
   color: #e0e0e0; /* Light text color for dark mode */
@@ -208,39 +200,30 @@ tr:nth-child(even) {
 /* Modify the button text based on the theme */
 .theme-button {
   background: none;
-  border: 1px solid #ccc; /* Add a border to make it distinguishable */
-  padding: 10px 15px; /* Increased padding for a bigger button */
+  border: 1px solid #ccc;
+  padding: 10px 15px;
   cursor: pointer;
-  font-size: 1.2em; /* Larger text size for the button */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
-  border-radius: 5px; /* Rounded corners for the button */
+  font-size: 1.2em;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
 }
 
 .theme-button:hover {
-  background-color: rgba(136, 136, 136, 0.116); /* Hover effect for the button */
+  background-color: rgba(136, 136, 136, 0.116);
 }
 
 /* Styles to apply when the theme is dark */
 .dark .theme-button {
-  border-color: #bb86fc; /* Purple border for the button in dark mode */
-  color: #e0e0e0; /* Light text color for the button in dark mode */
-  background-color: #333; /* Dark background color for the moon button */
+  border-color: #bb86fc;
+  color: #e0e0e0;
+  background-color: #333;
 }
 
 .dark .theme-button:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover in dark mode */
-  color: #bb86fc; /* Purple text color on hover in dark mode */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #bb86fc;
 }
 
-/* Styles to apply when the theme is dark */
-.dark .theme-button {
-  border-color: #bb86fc; /* Purple border for the button in dark mode */
-  color: #e0e0e0; /* Light text color for the button in dark mode */
-}
-
-.dark .theme-button:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover in dark mode */
-}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
