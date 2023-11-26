@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import doctorImage from '../../images/doctor.jpg'; // Make sure this path is correct
 
 const Card = ({ id, name, username, reloadFavorites }) => {
   const navigate = useNavigate();
+  
   // State to track if the dentist is a favorite
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // Function to check if the current dentist is in the favorites upon component mount and when `id` changes
+  // Check if the current dentist is in the favorites upon component mount and when `id` changes
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setIsFavorite(favorites.some(fav => fav.id === id));
-  }, [id]); // Dependency on id is enough as reloadFavorites function reference is stable
+  }, [id]);
 
   const toggleFavorite = (e) => {
     e.stopPropagation(); // Prevent the navigation from card click
@@ -18,27 +20,30 @@ const Card = ({ id, name, username, reloadFavorites }) => {
 
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     if (isFavorite) {
-      // Filter out the current dentist from favorites
+      // Remove the current dentist from favorites
       favorites = favorites.filter(fav => fav.id !== id);
     } else {
       // Add the current dentist to favorites
       favorites.push({ id, name, username });
     }
+    
     // Update localStorage and the state
     localStorage.setItem('favorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
 
-    // Call the reloadFavorites function passed from the parent component
-    // to update the favorite state in the parent component.
-    reloadFavorites();
+    // Trigger a reload of favorites in the Favs component
+    if (reloadFavorites && typeof reloadFavorites === 'function') {
+      reloadFavorites();
+    }
   };
 
   return (
     <div className="card" onClick={() => navigate(`/dentist/${id}`)}>
+      <img src={doctorImage} alt="Doctor" style={{ width: '100px', height: 'auto' }} /> {/* Adjusted image size */}
       <div>
         <h3>{name}</h3>
         <p>@{username}</p>
-        <p>ID: {id}</p> {/* Display the ID */}
+        <p>ID: {id}</p>
       </div>
       <button onClick={toggleFavorite} className="favButton">
         {isFavorite ? 'Remove from favs' : 'Add to favs'}

@@ -11,7 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.favButton{
+
+.favButton {
   background-color: rgba(136, 136, 136, 0.116);
   padding: 10px;
   border: none;
@@ -19,26 +20,28 @@ code {
   cursor: pointer;
 }
 
-h1{
+h1 {
   text-align: center;
 }
 
-nav{
+nav {
+  width: 100%; /* Set width to full viewport width */
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+  justify-content: space-around;
+  padding: 1rem 0; /* Adjust padding as needed */
+  box-sizing: border-box; /* Ensures padding doesn't affect the total width */
 }
 
-a{
+a {
   color: #000;
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
 }
-a:hover{
+
+a:hover {
   color: rgb(136, 136, 136);
-} 
+}
 
 footer {
   display: flex;
@@ -47,21 +50,22 @@ footer {
   padding: 2rem;
   position: relative;
   bottom: 0;
-  width: 90%;
+  width: 100%;
   height: 40px;
   margin-top: 2rem;
 }
 
-footer > img{
+footer > img {
   width: 200px;
   margin: 0;
 }
-footer > p{
+
+footer > p {
   margin: 0;
   padding-top: 0.7rem;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -70,37 +74,54 @@ form{
   margin: 0 auto;
 }
 
-.card{
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid rgb(136, 136, 136);
+.card {
+  flex: 0 0 calc(20% - 10px); /* Five cards per row, accounting for gap */
+  margin-bottom: 20px; /* Margin at the bottom of each card */
+  text-align: center; /* Center text inside cards */
+  border: 1px solid #ccc; /* Border around cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 1rem; /* Padding inside cards */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  border-radius: 10px; /* Rounded corners for the cards */
 }
 
-.card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+.card img {
+  max-width: 100%; /* Responsive image size */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 1rem; /* Space below the image */
+  border-radius: 10px; /* Rounded corners for the image */
 }
 
-.card-grid{
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly more pronounced shadow on hover */
+}
+
+.card-grid {
   display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  width: 90vw;
-  height: auto;
-  flex-wrap: wrap;
-  margin: 0 auto;
+  flex-wrap: wrap; /* Allows cards to wrap to next line */
+  gap: 10px; /* Adjust the gap to your preference */
+  justify-content: space-around; /* Evenly distribute space around items */
+  align-items: flex-start; /* Aligns items to the start of the cross axis */
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(50% - 10px); /* Two cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% - 10px); /* One card per row on small screens */
+  }
 }
 
 table {
- border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    display: table;
-    border: 1px solid #ccc;
-
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  display: table;
+  border: 1px solid #ccc;
 }
 
 td, th {
@@ -114,10 +135,10 @@ tr:nth-child(even) {
 }
 
 .dark {
-  background-color: #00000096;
-  color: white;
-}
-.dark > a {
+  background-color: #121212;
   color: white;
 }
 
+.dark a {
+  color: white;
+}
