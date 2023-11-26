@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import doctorImage from '../../images/doctor.jpg'; // Adjust the path if necessary
+import doctorImage from '../../images/doctor.jpg'; 
 
 const Card = ({ id, name, username, reloadFavorites }) => {
   const navigate = useNavigate();

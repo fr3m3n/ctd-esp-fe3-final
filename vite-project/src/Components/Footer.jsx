@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { GlobalContext } from './utils/global.context'; // Adjust the import path as necessary
+import { GlobalContext } from './utils/global.context'; 
 
 const Footer = () => {
   const { state } = useContext(GlobalContext);
 
   // Define a variable to hold the path to your image
-  const logoPath = '../../images/DH.png'; // Make sure this path is correct
+  const logoPath = '../../images/DH.png'; 
 
   // Define a variable for dynamic styles based on the theme
   const logoStyle = {
