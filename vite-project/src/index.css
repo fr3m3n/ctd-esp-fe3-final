@@ -67,14 +67,13 @@ a:hover {
 /* Footer Styles */
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Aligns children (content) of the footer to the center horizontally */
+  align-items: center; /* Aligns children (content) of the footer to the center vertically */
   text-align: center;
-  padding: 2rem;
+  padding: 1rem 0; /* Adjust padding as needed */
+  width: 100%;
   position: relative;
   bottom: 0;
-  width: 100%;
-  height: 40px;
-  margin-top: 2rem;
 }
 
 footer img {
@@ -83,7 +82,7 @@ footer img {
 }
 
 footer p {
-  margin: 0;
+  margin-left: 100px;
   padding-top: 0.7rem;
 }
 
@@ -162,6 +161,24 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+/* Light theme styles */
+.light .logo {
+  /* Assuming the light theme doesn't need additional styles, but you can add a subtle shadow if you like */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for light theme for consistency */
+}
+
+/* Dark theme styles */
+.dark .logo {
+  border: 1px solid #fff; /* Adds a white border around the logo */
+  box-shadow: 0 0 8px #fff; /* Adds a white shadow for visibility */
+}
+
+/* Dark theme styles */
+.dark .logo {
+  border: 1px solid #fff; /* Adds a white border around the logo */
+  box-shadow: 0 0 8px #fff; /* Adds a white shadow for visibility */
 }
 
 /* Dark theme styles */
