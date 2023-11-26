@@ -8,7 +8,7 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <GlobalProvider> {/* Wrap App component with GlobalProvider */}
+      <GlobalProvider> 
         <App />
       </GlobalProvider>
     </BrowserRouter>

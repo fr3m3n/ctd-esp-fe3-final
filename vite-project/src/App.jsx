@@ -12,7 +12,7 @@ const App = () => {
   const { state } = useContext(GlobalContext); // Access the global context
 
   return (
-    <div className={`App ${state.theme}`}> {/* Dynamically apply the theme class */}
+    <div className={`App ${state.theme}`}> 
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

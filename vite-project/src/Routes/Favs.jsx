@@ -30,7 +30,6 @@ const Favs = () => {
         <div className="card-grid">
           {favorites.map((dentist) => (
             // Pass reloadFavorites to Card so it can trigger a reload on toggle
-            // Make sure to pass the 'id' prop to the Card component
             <Card 
               key={dentist.id} 
               id={dentist.id} 

@@ -7,7 +7,7 @@ const Contact = () => {
 
   return (
     <div className={`contact ${state.theme}`}>
-      <Form /> {/* Use the Form component here */}
+      <Form /> 
     </div>
   );
 };

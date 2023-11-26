@@ -21,7 +21,6 @@ const Form = () => {
     event.preventDefault();
     if (validateForm()) {
       setMessage(`Thank you ${name}, we will contact you via email soon.`);
-      // Perform additional submission tasks
     }
   };
 
